@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "REPL Run": {
+      "commandName": "Project"
+    },
+    "File Run": {
+      "commandName": "Project",
+      "commandLineArgs": "test.lox"
+    }
+  }
+}
