@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "GenerateAst": {
+      "commandName": "Project",
+      "commandLineArgs": "Expression.cs",
+      "workingDirectory": "..\\SharpLox"
+    }
+  }
+}

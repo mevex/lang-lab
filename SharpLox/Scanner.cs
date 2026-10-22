@@ -218,6 +218,12 @@ namespace SharpLox
                     ConsumeBlockComment();
             }
 
+            if (IsAtEnd())
+            {
+                Lox.Error(line, "Unterminated block comment");
+                return;
+            }
+
             // Consumes the star
             Advance();
             // Consumes the slash
