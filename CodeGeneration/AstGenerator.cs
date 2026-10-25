@@ -48,7 +48,7 @@ foreach (string description in astDescription)
     // Member parameters
     foreach (string param in paramArray)
     {
-        CodeGenerated += $"        {param};\r\n";
+        CodeGenerated += $"        public {param};\r\n";
     }
     CodeGenerated += "\r\n";
 

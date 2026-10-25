@@ -17,9 +17,9 @@ namespace SharpLox
 
     internal class Binary : Expr
     {
-        Expr left;
-        Token opr;
-        Expr right;
+        public Expr left;
+        public Token opr;
+        public Expr right;
 
         public Binary(Expr left, Token opr, Expr right)
         {
@@ -36,7 +36,7 @@ namespace SharpLox
 
     internal class Grouping : Expr
     {
-        Expr expression;
+        public Expr expression;
 
         public Grouping(Expr expression)
         {
@@ -51,7 +51,7 @@ namespace SharpLox
 
     internal class Literal : Expr
     {
-        object value;
+        public object value;
 
         public Literal(object value)
         {
@@ -66,8 +66,8 @@ namespace SharpLox
 
     internal class Unary : Expr
     {
-        Token opr;
-        Expr right;
+        public Token opr;
+        public Expr right;
 
         public Unary(Token opr, Expr right)
         {

@@ -28,10 +28,10 @@
 
     internal class Token
     {
-        TokenType type;
-        string lexeme;
-        int line;
-        object? literal;
+        public TokenType type;
+        public string lexeme;
+        public int line;
+        public object? literal;
 
         public Token(TokenType type, string lexeme, int line, object? literal)
         {
