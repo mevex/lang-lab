@@ -9,7 +9,7 @@ Console.WriteLine(Path.GetFullPath(fileName));
 List<string> astDescription = new() {
     "Binary     : Expr left, Token opr, Expr right",
     "Grouping   : Expr expression",
-    "Literal    : object value",
+    "Literal    : object? value",
     "Unary      : Token opr, Expr right",
 };
 
