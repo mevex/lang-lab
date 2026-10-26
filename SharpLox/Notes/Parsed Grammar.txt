@@ -1,0 +1,14 @@
+#####################################################################
+# This file describes the grammar that the parser is able to parse. #
+# It will be updated as the grammar and parser grow.                #
+#####################################################################
+
+expression     → equality ;
+equality       → comparison ( ( "!=" | "==" ) comparison )* ;
+comparison     → term ( ( ">" | ">=" | "<" | "<=" ) term )* ;
+term           → factor ( ( "-" | "+" ) factor )* ;
+factor         → unary ( ( "/" | "*" ) unary )* ;
+unary          → ( "!" | "-" ) unary
+                 | primary ;
+primary        → NUMBER | STRING | "true" | "false" | "nil"
+                 | "(" expression ")" ;

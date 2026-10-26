@@ -61,23 +61,33 @@
             Scanner scanner = new Scanner(source != null ? source : "");
             List<Token> tokens = scanner.ScanTokens();
 
-            if (!hadError)
-            {
-                foreach (Token t in tokens)
-                {
-                    Console.WriteLine(t);
-                }
-            }
+            Parser parser = new Parser(tokens);
+            Expr? expression = parser.Parse();
+
+            // Stop if there was an error
+            if (hadError)
+                return;
+
+            if (expression != null)
+                Console.WriteLine(new AstPrinter().Print(expression));
         }
 
-        static public void Error(int line, string message)
+        public static void Error(int line, string message)
         {
             LogError(line, "", message);
-            hadError = true;
+        }
+
+        public static void Error(Token token, string message)
+        {
+            if (token.type == TokenType.EOF)
+                LogError(token.line, "at end of file", message);
+            else
+                LogError(token.line, $"at '{token.lexeme}'", message);
         }
 
         static void LogError(int line, string location, string message)
         {
+            hadError = true;
             Console.Error.WriteLine($"[line {line}]: Error {location}: {message}");
         }
     }
