@@ -48,7 +48,7 @@
                 Console.Write("> ");
                 string? source = Console.ReadLine();
 
-                if (source == null)
+                if (source is null)
                     break;
 
                 Run(source);
@@ -58,7 +58,7 @@
 
         static void Run(string? source)
         {
-            Scanner scanner = new Scanner(source != null ? source : "");
+            Scanner scanner = new Scanner(source is not null ? source : "");
             List<Token> tokens = scanner.ScanTokens();
 
             Parser parser = new Parser(tokens);
@@ -68,7 +68,7 @@
             if (hadError)
                 return;
 
-            if (expression != null)
+            if (expression is not null)
                 Console.WriteLine(new AstPrinter().Print(expression));
         }
 

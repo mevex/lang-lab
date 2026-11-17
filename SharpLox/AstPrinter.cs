@@ -14,7 +14,7 @@
 
         public string VisitLiteral(Literal expr)
         {
-            if (expr.value == null)
+            if (expr.value is null)
                 return "nil";
             else
                 return expr.value.ToString();

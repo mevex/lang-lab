@@ -37,7 +37,7 @@ namespace SharpLox
 
         public List<Token> ScanTokens()
         {
-            if (source == null)
+            if (source is null)
             {
                 tokens.Add(new Token(TokenType.EOF, "", line, null));
                 return tokens;
