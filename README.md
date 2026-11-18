@@ -17,7 +17,10 @@ I will track my progress on each implementation separately. Future milestones wi
 ### Tree-Walk Interpreter
 - [x] **Project setup and input handling:** project structure, reading source files and REPL support.
 - [x] **Scanning:** recognizing tokens, skipping comments and supporting block comments, including nested ones.
-- [ ] **Syntax trees:** representing expressions and defining their node types.
+- [X] **Parsing syntax trees (basic):** representing expressions and defining their node types for a subset of the language.
+- [x] **Inrepreter (basic):** Interpreting the expressions created by the basic parser.
+- [ ] **Statements**
+- [ ] **State**
 
 ### Bytecode Virtual Machine
 I haven't started this implementation yet.
