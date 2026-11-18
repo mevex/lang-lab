@@ -2,7 +2,9 @@
 {
     internal class Lox
     {
+        static Interpreter interpreter = new Interpreter();
         static bool hadError = false;
+        static bool hadRuntimeError = false;
 
         static void Main(string[] args)
         {
@@ -30,11 +32,13 @@
 
                 if (hadError)
                     Environment.Exit(65);
+                if (hadRuntimeError)
+                    Environment.Exit(70);
             }
             else
             {
                 Console.WriteLine($"Unable to find file {filePath}");
-                Environment.Exit(66);
+                Environment.Exit(10);
             }
         }
 
@@ -68,8 +72,7 @@
             if (hadError)
                 return;
 
-            if (expression is not null)
-                Console.WriteLine(new AstPrinter().Print(expression));
+            interpreter.Interpret(expression);
         }
 
         public static void Error(int line, string message)
@@ -83,6 +86,11 @@
                 LogError(token.line, "at end of file", message);
             else
                 LogError(token.line, $"at '{token.lexeme}'", message);
+        }
+        public static void Error(RuntimeError e)
+        {
+            LogError(e.token.line, $"at '{e.token.lexeme}'", e.message);
+            hadRuntimeError = true;
         }
 
         static void LogError(int line, string location, string message)
